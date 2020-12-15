@@ -53,27 +53,44 @@ def stats():
     """Return a list player data"""
     # Query all players
     sel = [
+        players.sofifa_id,
         players.short_name,
         players.age,
+        players.nationality,
+        players.overall,
         players.club,
-        # players.AGE,
-        # players.LOCATION,
-        # players.BBTYPE,
-        # players.WFREQ,
+        players.value_eur,
+        players.wage_eur,
+        players.preferred_foot,
+        players.team_position,
+        players.bmi,
+        players.height_in,
+        players.weight_lbs
     ]
     results = session.query(*sel).all()
 
     session.close()
 
     # Create a dictionary from the row data and append to a list of all_passengers
-    all_players = []
-    import base64
-    for short_name, age, club in results:
-        encoded = base64.b64encode(b'{}'.format(short_name)) 
+    # all_players = []
+    # import base64
+    for sofifa_id, short_name, age, nationality, overall, club, value_eur, wage_eur, preferred_foot, team_position, bmi, height_in, weight_lbs in results:
+        # encoded = base64.b64encode(b'{}'.format(short_name)) 
         player_dict = {}
-        player_dict["short_name"] = encoded.decode('ascii') 
+        player_dict["sofifa_id"] = sofifa_id
+        player_dict["short_name"] = short_name
+        # player_dict["short_name"] = encoded.decode('ascii') 
         player_dict["age"] = age
+        player_dict["nationality"] = nationality
+        player_dict["overall"] = overall
         player_dict["club"] = club
+        player_dict["value_eur"] = value_eur
+        player_dict["wage_eur"] = wage_eur
+        player_dict["preferred_foot"] = preferred_foot
+        player_dict["team_position"] = team_position
+        player_dict["bmi"] = bmi
+        player_dict["height_in"] = height_in
+        player_dict["weight_lbs"] = weight_lbs
         all_players.append(player_dict)
     
     return jsonify(all_players)
