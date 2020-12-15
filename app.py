@@ -72,7 +72,7 @@ def stats():
     session.close()
 
     # Create a dictionary from the row data and append to a list of all_passengers
-    # all_players = []
+    all_players = []
     # import base64
     for sofifa_id, short_name, age, nationality, overall, club, value_eur, wage_eur, preferred_foot, team_position, bmi, height_in, weight_lbs in results:
         # encoded = base64.b64encode(b'{}'.format(short_name)) 
