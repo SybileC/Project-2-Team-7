@@ -3,6 +3,7 @@ import os
 import datetime as dt
 import numpy as np
 import pandas as pd
+import json 
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
@@ -10,7 +11,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
 from flask import Flask, jsonify, render_template
-from flask_sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
@@ -20,7 +21,7 @@ app = Flask(__name__)
 
 engine = create_engine("sqlite:///db/fifa_players.sqlite")
 con = engine.connect()
-con.execute("SELECT * FROM player_table")
+players_df = pd.read_sql("SELECT * FROM player_table", con)
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -36,6 +37,8 @@ players = Base.classes.player_table
 # Create our session (link) from Python to the DB
 session = Session(engine)
 
+
+
 #################################################
 # Flask Routes
 #################################################
@@ -45,8 +48,16 @@ def index():
     """Return the homepage."""
     return (
         f"Available Routes:<br/>"
+        f"/foot<br/>"
         f"/players"
     )
+
+@app.route("/foot")
+def pref_foot():
+    """Return preferred foot totals"""
+    counts = players_df.preferred_foot.value_counts()  
+
+    return counts.to_json()
 
 @app.route("/players")
 def stats():
@@ -92,10 +103,38 @@ def stats():
         player_dict["height_in"] = height_in
         player_dict["weight_lbs"] = weight_lbs
         all_players.append(player_dict)
-    
+
+    print(all_players)
+    with open("top_players.json", "w") as outfile: 
+        json.dump(all_players, outfile)
+
+
     return jsonify(all_players)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    
+    # Writing to data.json 
+    # with open("top_players.json", "w") as outfile: 
+    #     outfile.write(jsonify(all_players))
 
+    # with open("top_players.json", "w") as outfile: 
+    #     outfile.write(stats())
+
+    app.run(debug=True)
+ 
+  
+# # Data to be written 
+# dictionary ={ 
+#     "name" : "sathiyajith", 
+#     "rollno" : 56, 
+#     "cgpa" : 8.6, 
+#     "phonenumber" : "9976770500"
+# } 
+  
+# # Serializing json  
+# json_object = json.dumps(dictionary, indent = 4) 
+  
+# # Writing to sample.json 
+# with open("sample.json", "w") as outfile: 
+#     outfile.write(json_object)
