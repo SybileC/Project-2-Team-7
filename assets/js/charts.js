@@ -15,7 +15,7 @@ Plotly.d3.csv('/data/top_players.csv', function (err, data) {
     };
 
     let layout = {
-        title: "FIFA2020 Player Nationaly and Wage",
+        title: "FIFA2020 Player Nationality and Wage",
         yaxis: { title: "Player Wage" },
         xaxis: { title: "Nationality" }
     }
