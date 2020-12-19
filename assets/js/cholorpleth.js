@@ -1,4 +1,4 @@
-Plotly.d3.csv('data/top_players.csv', function(err, rows){
+Plotly.d3.csv('/data/top_players.csv', function(err, rows){
       function unpack(rows, key) {
           return rows.map(function(row) { return row[key]; });
       }
@@ -8,7 +8,7 @@ Plotly.d3.csv('data/top_players.csv', function(err, rows){
         locationmode: 'country names',
         locations: unpack(rows, 'nationality'),
         z: unpack(rows, 'wage_eur'),
-        text: unpack(rows, 'nationality'),
+        text: unpack(rows, 'short_name'),
         autocolorscale: true
     }];
 
@@ -22,5 +22,4 @@ Plotly.d3.csv('data/top_players.csv', function(err, rows){
     };
 
     Plotly.newPlot("map", data, layout, {showLink: false});
-
 });
