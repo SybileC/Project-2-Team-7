@@ -26,20 +26,28 @@ function init() {
         wageYAxis = [{
             type: "bar",
             x: top_playersAge,
-            y: top_wages
+            y: top_wages,
+            text: top_wages,
+            marker: {
+                color: '#f54242'
+              }
         }];
 
         ratingYAxis = [{
             type: "bar",
             x: top_playersAge,
-            y: top_rated
+            y: top_rated,
+            text: top_rated,
+            marker: {
+                color: '#4287f5'
+              }
         }];
 
     
         layout1 = {
             xaxis: {
-                title: "Players' Age"
-            }
+                title: "age"
+            },
             yaxis: {title:"Players' Wage"
         }
         };
@@ -47,15 +55,15 @@ function init() {
 
         layout2 = {
             xaxis: {
-                title: "Players' Age"
-            }
+                title: "age"
+            },
             yaxis: {title:"Players' Rating"
         }
         };
     
         Plotly.newPlot("barOverall", ratingYAxis, layout1);
 
-        Plotly.newPlot("barWage", wageYAxis, layout);
+        Plotly.newPlot("barWage", wageYAxis, layout2);
 
 
     physicalAttributes = ["age", "preferred_foot", "bmi", "height_in", "weight_lbs"];
@@ -97,20 +105,27 @@ function optionChanged(xAxis) {
         wageYAxis = [{
             type: "bar",
             x: valueTopPlayers,
-            y: top_wages
-            // text: ,
+            y: top_wages,
+            text: top_wages,
+            marker: {
+                color: '#f54242'
+              }
         }];
 
         ratingYAxis = [{
             type: "bar",
             x: top_playersAge,
-            y: top_rated
+            y: top_rated,
+            text: top_rated,
+            marker: {
+                color: '#4287f5'
+              }
         }];
 
         layout1 = {
             xaxis: {
-                title: "Players' Age"
-            }
+                title: `${xAxis}`
+            },
             yaxis: {title:"Players' Wage"
         }
         };
@@ -118,8 +133,8 @@ function optionChanged(xAxis) {
 
         layout2 = {
             xaxis: {
-                title: "Players' Age"
-            }
+                title: `${xAxis}`
+            },
             yaxis: {title:"Players' Rating"
         }
         };
