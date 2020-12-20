@@ -49,7 +49,7 @@ function init() {
                 title: "age"
             },
             yaxis: {title:"Players' Wage"
-        }
+            }
         };
         
 
@@ -61,9 +61,9 @@ function init() {
         }
         };
     
-        Plotly.newPlot("barOverall", ratingYAxis, layout1);
+        Plotly.newPlot("barWage", wageYAxis, layout1);
 
-        Plotly.newPlot("barWage", wageYAxis, layout2);
+        Plotly.newPlot("barOverall", ratingYAxis, layout2);
 
 
     physicalAttributes = ["age", "preferred_foot", "bmi", "height_in", "weight_lbs"];
@@ -139,8 +139,9 @@ function optionChanged(xAxis) {
         }
         };
 
-        Plotly.newPlot("barOverall", ratingYAxis, layout1);
-        Plotly.newPlot("barWage", wageYAxis, layout2);
+        Plotly.newPlot("barWage", wageYAxis, layout1);
+
+        Plotly.newPlot("barOverall", ratingYAxis, layout2);
 
     });
 
