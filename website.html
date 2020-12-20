@@ -8,6 +8,7 @@
   <link rel="shortcut icon" href="soccerball.svg" type="image/x-icon">
   <title>FIFA</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>				
 </head>
 
 <body>
@@ -23,6 +24,12 @@
     <div class="row">
       <div class="col-md-12 jumbotron text-center"> -->
         <h1>FIFA 20 Player Success Stats</h1>
+        <div class="slick">
+          <div>Joshua Sohan</div>
+          <div>Sybile Cherenfant</div>
+          <div>Genevieve Sloup</div>
+          <div>Raymond Galan</div>
+        </div>
         <!-- <p>Use the interactive charts below to explore the dataset</p> -->
       </div>
     </div>
@@ -59,8 +66,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.js" integrity="sha512-I54fxhTJwRigWTc3uNjgDzgii7LW+WJuyyA8kc6WaaZ7RQQNAf8bOEJLRNav7n/ca09MUwl5FptUukvqrOTUvQ==" crossorigin="anonymous"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="barChart.js"></script>
-  <!-- <script src="samples.json"></script> -->
-  
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.slick').slick({
+        speed: 1000,
+      });
+    });
+  </script>
 </body>
 
 </html>
