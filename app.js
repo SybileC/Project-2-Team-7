@@ -2,6 +2,37 @@ function init() {
     dropdownMenu = d3.select("#selDataset");
 
     d3.json("top_players.json").then(function(data) {
+
+        preferred_foot = []
+
+        for (var i = 0; i < data.length; i++) {
+            foot = data[i]["preferred_foot"];
+            
+            preferred_foot.push(foot);
+        
+        }
+        
+        console.log(preferred_foot);
+        
+        
+        for (let f in preferred_foot) {
+            
+            leftFoot = []
+            rightFoot = []
+        
+            if (preferred_foot[f] == "Left") {
+                lf = preferred_foot[f];
+                leftFoot.push(lf);
+            }
+            else {
+                rf = preferred_foot[f];
+                rightFoot.push(rf);
+            }
+              
+        }
+        
+        console.log(leftFoot);
+        console.log(rightFoot);
        
         playersAge = []
         ratings = []
@@ -15,13 +46,20 @@ function init() {
             playersAge.push(age);
             ratings.push(overall)
             wages.push(wage);
-   
+
+            
         }
         
+        // console.log(playersAge);
+        // console.log(ratings);
+        // console.log(wages);
+
         top_playersAge = playersAge.slice(0, 100);
         top_rated = ratings.slice(0, 100);
         top_wages = wages.slice(0, 100);
 
+        // console.log(top_playersAge);
+        // console.log(top_wages);
 
         wageYAxis = [{
             type: "bar",
@@ -31,6 +69,7 @@ function init() {
         }];
 
         ratingYAxis = [{
+            // mode: "markers",
             type: "bar",
             x: top_playersAge,
             y: top_rated
@@ -40,8 +79,8 @@ function init() {
         // data = [wageYAxis, ratingYAxis];
 
         var frames = [
-            {name: "Players' Wage", data: [{x: top_playersAge, y: top_wages}]},
-            {name: "Players' Rating", data: [{x: top_playersAge, y: top_rated}]}
+            {name: "Players' Wage", data: wageYAxis},
+            {name: "Players' Rating", data: ratingYAxis}
           ];
 
     
@@ -51,12 +90,26 @@ function init() {
     
         Plotly.newPlot("bar", wageYAxis, layout1);
 
-        // Plotly.newPlot("bar", wageYAxis, {
-        //     xaxis: {title: "Players' Age"},
-        //     // yaxis: {title: "Players' Wage"},
-        //     updatemenus: [{
+        
+        
+        // Plotly.newPlot("bar", wageYAxis);
+        
+        // function animation() {
+        //   Plotly.animate("bar", ratingYAxis, {
+        //     transition: {
+        //       duration: 500,
+        //       easing: 'cubic-in-out'
+        //     },
+        //     frame: {
+        //       duration: 500
+        //     }
+        //   })
+        // };
+
+        // Plotly.newPlot("bar", wageYAxis,
+        //     {updatemenus: [{
         //       buttons: [
-        //         {method: 'animate', args: [["Players'Wage"]], label: "Players' Wage"},
+        //         {method: 'animate', args: [["Players' Wage"]], label: "Players' Wage"},
         //         {method: 'animate', args: [["Players' Rating"]], label: "Players' Rating"}
         //       ]
         //     }]
