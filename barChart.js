@@ -118,7 +118,7 @@ function optionChanged(xAxis) {
         ratingYAxis = [{
             mode: "markers",
             type: "scatter",
-            x: top_playersAge,
+            x: valueTopPlayers,
             y: top_rated,
             text: top_rated,
             marker: {
