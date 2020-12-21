@@ -56,11 +56,11 @@ function buildCharts() {
     //build data
     var trace500 = {
       values: [leftFoot500.length, rightFoot500.length],
-      labels: ["right", "left"],
+      labels: ["left", "right"],
       type: 'pie',
       text: [leftFoot500.length, rightFoot500.length],
       marker: {
-        colors: ["#482878", "#1f9e89"]
+        colors: ["#f54242", "#4287f5"]
       },
       textinfo: 'percent',
       hoverinfo: 'label+text+value+percent'
@@ -81,11 +81,11 @@ function buildCharts() {
     // ----------------------------------------
     var trace20 = {
       values: [leftFoot20.length, rightFoot20.length],
-      labels: ["right", "left"],
+      labels: ["left", "right"],
       type: 'pie',
       text: [leftFoot20.length, rightFoot20.length],
       marker: {
-        colors: ["#482878", "#1f9e89"]
+        colors: ["#f54242", "#4287f5"]
       },
       textinfo: 'percent',
       hoverinfo: 'label+text+value+percent'
@@ -106,11 +106,11 @@ function buildCharts() {
     // ----------------------------------------
     var trace100 = {
       values: [leftFoot100.length, rightFoot100.length],
-      labels: ["right", "left"],
+      labels: ["left", "right"],
       type: 'pie',
       text: [leftFoot100.length, rightFoot100.length],
       marker: {
-        colors: ["#482878", "#1f9e89"]
+        colors: ["#f54242", "#4287f5"]
       },
       textinfo: 'percent',
       hoverinfo: 'label+text+value+percent'
