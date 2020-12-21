@@ -21,7 +21,7 @@ app = Flask(__name__)
 
 engine = create_engine("sqlite:///db/fifa_players.sqlite")
 con = engine.connect()
-players_df = pd.read_sql("SELECT * FROM player_table", con)
+con.execute("SELECT * FROM player_table")
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -105,28 +105,6 @@ def stats():
 
 
 if __name__ == '__main__':
-    
-    # Writing to data.json 
-    # with open("top_players.json", "w") as outfile: 
-    #     outfile.write(jsonify(all_players))
-
-    # with open("top_players.json", "w") as outfile: 
-    #     outfile.write(stats())
 
     app.run(debug=True)
  
-  
-# # Data to be written 
-# dictionary ={ 
-#     "name" : "sathiyajith", 
-#     "rollno" : 56, 
-#     "cgpa" : 8.6, 
-#     "phonenumber" : "9976770500"
-# } 
-  
-# # Serializing json  
-# json_object = json.dumps(dictionary, indent = 4) 
-  
-# # Writing to sample.json 
-# with open("sample.json", "w") as outfile: 
-#     outfile.write(json_object)
