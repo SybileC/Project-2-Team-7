@@ -48,16 +48,8 @@ def index():
     """Return the homepage."""
     return (
         f"Available Routes:<br/>"
-        f"/foot<br/>"
         f"/players"
     )
-
-@app.route("/foot")
-def pref_foot():
-    """Return preferred foot totals"""
-    counts = players_df.preferred_foot.value_counts()  
-
-    return counts.to_json()
 
 @app.route("/players")
 def stats():

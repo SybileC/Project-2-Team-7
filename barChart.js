@@ -24,7 +24,8 @@ function init() {
 
 
         wageYAxis = [{
-            type: "bar",
+            mode: "markers",
+            type: "scatter",
             x: top_playersAge,
             y: top_wages,
             text: top_wages,
@@ -34,7 +35,8 @@ function init() {
         }];
 
         ratingYAxis = [{
-            type: "bar",
+            mode: "markers",
+            type: "scatter",
             x: top_playersAge,
             y: top_rated,
             text: top_rated,
@@ -103,7 +105,8 @@ function optionChanged(xAxis) {
 
 
         wageYAxis = [{
-            type: "bar",
+            mode: "markers",
+            type: "scatter",
             x: valueTopPlayers,
             y: top_wages,
             text: top_wages,
@@ -113,7 +116,8 @@ function optionChanged(xAxis) {
         }];
 
         ratingYAxis = [{
-            type: "bar",
+            mode: "markers",
+            type: "scatter",
             x: top_playersAge,
             y: top_rated,
             text: top_rated,
