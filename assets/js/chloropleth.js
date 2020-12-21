@@ -13,7 +13,7 @@ Plotly.d3.csv('/old/player_location.csv', function(err, rows){
         //z: unpack(rows, 'wage_eur'),
         text: unpack(rows, 'country'),
         //text: unpack(rows, 'short_name'),
-        autocolorscale: true
+        colorscale: 'Jet'
     }];
 
     var layout = {
