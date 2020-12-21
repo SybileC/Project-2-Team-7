@@ -8,35 +8,32 @@
   <link rel="shortcut icon" href="soccerball.svg" type="image/x-icon">
   <title>FIFA</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>				
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 </head>
 
 <body>
-
-  <section class="header1 cid-sjzHOuDTSY mbr-fullscreen mbr-parallax-background" id="header1-1">
-
-    <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(0, 0, 0);"></div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-5">
-    <!-- <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center"> -->
+  <div class="container" id="content-wrapper">
+    <div class="row mt-2">
+      <div class="header1 cid-sjzHOuDTSY mbr-fullscreen mbr-parallax-background" id="header1-1">
+        <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(0, 0, 0);"></div>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-lg-12 text-center">
         <h1>FIFA 20 Player Success Stats</h1>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12 col-lg-5">
         <div class="slick">
           <div>Joshua Sohan</div>
           <div>Sybile Cherenfant</div>
           <div>Genevieve Sloup</div>
           <div>Raymond Galan</div>
         </div>
-        <!-- <p>Use the interactive charts below to explore the dataset</p> -->
       </div>
     </div>
-  </div>
-</div>
-    </section>
-    <div class="row">
+    <div class="row mt-3">
       <div class="col-md-2">
         <div class="well">
           <h5>Physical Attributes:</h5>
@@ -56,21 +53,30 @@
         <div id="barWage"></div>
       </div>
     </div>
-    <div class="row">
+    <div class="row-mt-5">
       <div class="col-md-12">
-        <div id="map"></div>
+        <div id="charts"></div>
+      </div>
+    </div>
+    <div class="row-mt-5">
+      <div class="col-md-12">
+        <div id="chloropleth"></div>
       </div>
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.js" integrity="sha512-I54fxhTJwRigWTc3uNjgDzgii7LW+WJuyyA8kc6WaaZ7RQQNAf8bOEJLRNav7n/ca09MUwl5FptUukvqrOTUvQ==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.js"
+    integrity="sha512-I54fxhTJwRigWTc3uNjgDzgii7LW+WJuyyA8kc6WaaZ7RQQNAf8bOEJLRNav7n/ca09MUwl5FptUukvqrOTUvQ=="
+    crossorigin="anonymous"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="barChart.js"></script>
+  <script src="assets/js/chloropleth.js"></script>
+  <script src="assets/js/charts.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
       $('.slick').slick({
         speed: 1000,
       });

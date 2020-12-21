@@ -21,5 +21,5 @@ Plotly.d3.csv('/data/top_players.csv', function(err, rows){
       }
     };
 
-    Plotly.newPlot("map", data, layout, {showLink: false});
+    Plotly.newPlot("chloropleth", data, layout, {showLink: false});
 });
